@@ -9,6 +9,8 @@ What kind of changes does this PR introduce?
 - [ ] Other
 ```
 
+[Jira Link](https://xsolve.atlassian.net/browse/PROJECT_KEY)
+
 ## Description
 
 Describe the purpose of this pull request.
@@ -23,5 +25,5 @@ Include any additional information about changes.
 
 ## Checklist
 
-- [ ] Everything works good
-- [ ] this needs to be improved in the future
+- [ ] Tests passed
+- [ ] Documentation updated
