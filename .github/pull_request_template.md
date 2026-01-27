@@ -1,3 +1,7 @@
+## Jira Ticket
+
+[CL-XX](link on ticket)
+
 ## PR Type
 What kind of changes does this PR introduce?
 ```
@@ -8,8 +12,6 @@ What kind of changes does this PR introduce?
 - [ ] Tests
 - [ ] Other
 ```
-
-[Jira Link](https://xsolve.atlassian.net/browse/PROJECT_KEY)
 
 ## Description
 
