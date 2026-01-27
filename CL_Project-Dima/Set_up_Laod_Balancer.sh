@@ -4,6 +4,8 @@ apt update -y
 
 apt install nginx -y
 
+atp systemctl start nginx
+
 echo "
 upstream samplecluster {
     server 192.168.0.51;
