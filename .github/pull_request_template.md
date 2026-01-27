@@ -1,3 +1,18 @@
+## Jira Ticket
+
+[CL-XX](link on ticket)
+
+## PR Type
+What kind of changes does this PR introduce?
+```
+- [ ] Bugfix
+- [ ] Feature
+- [ ] Code style update (formatting, local variables)
+- [ ] Refactoring (no functional changes)
+- [ ] Tests
+- [ ] Other
+```
+
 ## Description
 
 Describe the purpose of this pull request.
@@ -8,7 +23,7 @@ List the changes you have made.
 
 ## Additional Information
 
-Include any additional information, such as how to test your changes.
+Include any additional information about changes.
 
 ## Checklist
 
