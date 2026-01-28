@@ -33,7 +33,6 @@ sudo apt install nginx -y
 sudo apt install lynis -y
 
 sudo mkdir /var/log/lynis
-sudo mkdir /usr/local/bin
 
 sudo tee /usr/local/bin/lynis-cronjob.sh << 'EOF'
 #!/bin/bash
@@ -44,7 +43,7 @@ HOST="postgresql"
 REPORT="/var/log/lynis/report-${HOST}_${DATE}.txt"
 
 lynis audit system --cronjob > "${REPORT}"
-sftp -o StrictHostKeyChecking=accept-new -i /home/nda/.ssh/host_machine "${REPORT}" nda@10.0.2.1:/home/nda/reports/
+sftp -o StrictHostKeyChecking=accept-new -i /home/nda/.ssh/host_machine nda@10.0.2.1:/home/nda/reports/ <<< $"put ${REPORT}"
 EOF
 sudo chmod +x /usr/local/bin/lynis-cronjob.sh
 

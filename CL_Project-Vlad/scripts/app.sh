@@ -108,7 +108,7 @@ DATE=$(date +%Y%m%d_%H%M%S)
 REPORT="/var/log/lynis/report-${HOST}_${DATE}.txt"
 
 lynis audit system --cronjob > "${REPORT}"
-sftp -o StrictHostKeyChecking=accept-new -i /home/nda/.ssh/host_machine nda@10.0.2.1:/home/nda/reports/ <<< $'put ${REPORT}'
+sftp -o StrictHostKeyChecking=accept-new -i /home/nda/.ssh/host_machine nda@10.0.2.1:/home/nda/reports/ <<< $"put ${REPORT}"
 EOF
 sudo chmod +x /usr/local/bin/lynis-cronjob.sh
 
