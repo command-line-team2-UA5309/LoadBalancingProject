@@ -1,0 +1,12 @@
+upstream backend {
+    server 10.0.2.4;
+    server 10.0.2.5;
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://backend;
+    }
+}
