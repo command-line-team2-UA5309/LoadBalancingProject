@@ -29,7 +29,7 @@ sudo apt install lynis -y
 
 sudo mkdir /var/log/lynis
 
-envsubst '${VM_NAME}' < lynis-cronjob-tmp.sh > lynis-cronjob.sh
+envsubst '${VM_NAME}' < lynis-cronjob-tpl.sh > lynis-cronjob.sh
 sudo mv lynis-cronjob.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/lynis-cronjob.sh
 
