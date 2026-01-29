@@ -34,6 +34,7 @@ python3 -m venv /home/nda/FlaskBirdApp/.venv
 source /home/nda/FlaskBirdApp/.venv/bin/activate
 pip install --upgrade pip
 pip install flask
+pip install python-dotenv
 pip install gunicorn
 deactivate
 
