@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
+def main_page():
     return render_template('index.html', name="Painted Bunting", location="Ixtapa, Mexico")
 
 
