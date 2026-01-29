@@ -3,7 +3,7 @@
 set -e
 
 #Set variables for configuration files
-export VM_NAME="load_balancer"
+export VM_NAME="postgresql"
 export IP="10.0.2.3/24"
 
 #Set static ip
