@@ -2,23 +2,13 @@
 
 set -e
 
+#Set variables for configuration files
+export VM_NAME="load_balancer"
+export IP="10.0.2.3/24"
+
 #Set static ip
-sudo tee /etc/netplan/01-netcfg.yaml << EOF
-network:
-  version: 2
-  ethernets:
-    enp0s3:
-      dhcp4: no
-      addresses:
-        - 10.0.2.6/24
-      routes:
-        - to: default
-          via: 10.0.2.1
-      nameservers:
-        addresses:
-          - 8.8.8.8
-          - 1.1.1.1
-EOF
+envsubst < static_ip_tpl.yaml > 01-netcfg.yaml
+sudo mv 01-netcfg.yaml /etc/netplan
 sudo chmod 600 /etc/netplan/01-netcfg.yaml
 sudo netplan apply
 
@@ -34,17 +24,8 @@ sudo apt install lynis -y
 
 sudo mkdir /var/log/lynis
 
-sudo tee /usr/local/bin/lynis-cronjob.sh << 'EOF'
-#!/bin/bash
-
-set -u
-DATE=$(date +%Y%m%d_%H%M%S)
-HOST="postgresql"
-REPORT="/var/log/lynis/report-${HOST}_${DATE}.txt"
-
-lynis audit system --cronjob > "${REPORT}"
-sftp -o StrictHostKeyChecking=accept-new -i /home/nda/.ssh/host_machine nda@10.0.2.1:/home/nda/reports/ <<< $"put ${REPORT}"
-EOF
+envsubst '${VM_NAME}' < lynis-cronjob-tmp.sh > lynis-cronjob.sh
+sudo mv lynis-cronjob.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/lynis-cronjob.sh
 
 sudo tee -a /etc/crontab << EOF
