@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve FlaskBirdApp
+After=network.target
+
+[Service]
+User=nda
+Group=www-data
+WorkingDirectory=/home/nda/FlaskBirdApp
+Environment="PATH=/home/nda/FlaskBirdApp/.venv/bin"
+ExecStart=/home/nda/FlaskBirdApp/.venv/bin/gunicorn --workers 3 --bind unix:FlaskBirdApp.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target
